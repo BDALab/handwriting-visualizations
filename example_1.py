@@ -1,4 +1,4 @@
-from visualization_tool import *
+from visualization_tools import *
 from handwriting_sample import HandwritingSample
 from handwriting_features.features import HandwritingFeatures
 
