@@ -53,7 +53,7 @@ def vizualize(config):
     if display:
         plot(fig)
     if "div" in output:
-        response["div"] = plot(fig, output_type='div', include_plotlyjs=False, show_link=False, link_text="")
+        response["div"] = plot(fig, output_type='div', include_plotlyjs=global_config["include_js"], show_link=False, link_text="")
     if "fig" in output:
         response["fig"] = fig
     if picture:
