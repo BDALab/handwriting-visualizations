@@ -14,6 +14,12 @@ class ConfigsPlotXY:
             self.custom_config["display"] = False
         if "output" not in custom_config:
             self.custom_config["output"] = "fig"
+        if "show_legend" not in custom_config:
+            self.custom_config["show_legend"] = True
+        if "include_js" not in custom_config:
+            self.custom_config["include_js"] = False
+        if "margin" not in custom_config:
+            self.custom_config["margin"] = dict(t = 100, r = 80, b = 80, l = 80),
 
     def get_config(self):
         config = {}
@@ -84,9 +90,10 @@ class ConfigsPlotXY:
                 "vertical_spacing": 0.14,
                 "subplot_titles": ["1"]},
             "layout": {  # https://plotly.com/python/reference/layout/
-                "showlegend": True,
+                "showlegend": self.custom_config['show_legend'],
                 # "title": "Časové řady",
                 "autosize": True,
+                "margin": self.custom_config["margin"],
                 "font": {
                     "family": "Georgia",
                     "size": 22,
@@ -101,6 +108,7 @@ class ConfigsPlotXY:
             },
             "display": self.custom_config["display"],
             "output": self.custom_config["output"],
-            "picture": {}
+            "picture": {},
+            "include_js": self.custom_config["include_js"],
         }
         return config
