@@ -1,5 +1,5 @@
-handwriting-features==1.0.5
-handwriting-sample==1.0.1
-numpy==1.24.1
-pandas==1.5.3
-plotly==5.13.0
+handwriting-features>=1.0.8
+handwriting-sample>=1.0.3
+numpy>=1.23.3
+pandas>=1.4.4
+plotly>=4.14.3
