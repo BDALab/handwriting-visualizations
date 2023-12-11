@@ -2,7 +2,7 @@ from visualization_tools import *
 from handwriting_sample import HandwritingSample
 from handwriting_features.features import HandwritingFeatures
 
-sample = HandwritingSample.from_svc(path="_examples/_example_5.svc")
+sample = HandwritingSample.from_svc(path="_example_5.svc")
 feature_data = HandwritingFeatures.from_sample(sample)
 
 # Preparing config variable
