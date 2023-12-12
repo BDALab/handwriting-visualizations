@@ -20,8 +20,6 @@ class ConfigsPlotXY:
             self.custom_config["include_js"] = False
         if "margin" not in custom_config:
             self.custom_config["margin"] = {"t":100, "r":80, "b":80, "l":80}
-            print(self.custom_config)
-            print(type(self.custom_config))
 
     def get_config(self):
         config = {}
