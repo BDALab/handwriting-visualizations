@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "handwriting_visualizations"
-version = "0.1.2"
+version = "0.1.4"
 description = ""
 authors = ["Bdalab team"]
 readme = "README.md"
@@ -8,9 +8,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 handwriting-features = "^1.0.8"
-numpy = "^1.23.3"
-pandas = "^1.4.4"
-plotly = "^4.14.3"
+numpy = "*"
+pandas = "*"
+plotly = "*"
 
 
 [build-system]
