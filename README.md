@@ -1,4 +1,4 @@
 # Handwriting visualizations
-TODO
+- stable version: 0.1.2
 
 
