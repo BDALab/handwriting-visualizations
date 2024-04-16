@@ -33,6 +33,17 @@ config["body"] = \
                 "opacity": 0.65,
             },
             {
+                "name": "In-air pohybads",
+                "x": feature_data.wrapper.on_surface_data.x,
+                "y": feature_data.wrapper.on_surface_data.time,
+                "mode": "lines",
+                "line": {
+                    "color": "red",
+                    "width": 3
+                },
+                "opacity": 0.65,
+            },
+            {
                 "_config": {  # https://plotly.com/python/axes/
                     "update_xaxes": {
                         "title_text": "Souřadnice x [mm]",
