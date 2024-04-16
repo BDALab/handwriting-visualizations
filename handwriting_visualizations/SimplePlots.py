@@ -1,4 +1,5 @@
 from handwriting_features.features import HandwritingFeatures
+from handwriting_sample import HandwritingSample
 from .visualization_tools import *
 from .Configs import *
 
@@ -15,6 +16,28 @@ class SimplePlots:
 
     def plot_x_y(self):
         return vizualize(ConfigsPlotXY(x=self.input_data["x"], y=self.input_data["y"], custom_config=self.custom_config).get_config()).values()
+
+    def plot_on_surface(self, sample: HandwritingSample):
+        """Plot the on_surface data of the handwriting sample"""
+
+        # Get the on_surface data
+        on_surface_strokes = sample.get_strokes(on_surface_only=True)
+
+        # Prepare the empty config
+        configs = []
+
+        # Prepare the config for each stroke (x,y) and get global config
+        for stroke in on_surface_strokes:
+            configs.append(ConfigsPlotXY(x=stroke[1].x, y=stroke[1].y, custom_config=self.custom_config).get_config())
+
+        # Create final config
+        final_config = configs[0]
+
+        # Go over each config in body and add only the x,y data
+        for config in configs[1:]:
+            final_config["body"][0].append(config["body"][0][0])
+
+        return vizualize(final_config)
 
 
 
