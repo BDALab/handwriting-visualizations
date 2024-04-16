@@ -19,7 +19,9 @@ class ConfigsPlotXY:
         if "include_js" not in custom_config:
             self.custom_config["include_js"] = False
         if "margin" not in custom_config:
-            self.custom_config["margin"] = {"t":100, "r":80, "b":80, "l":80}
+            self.custom_config["margin"] = {"t":10, "r":10, "b":10, "l":10}
+        if "height" not in custom_config:
+            self.custom_config["height"] = 500
 
     def get_config(self):
         config = {}
@@ -32,8 +34,8 @@ class ConfigsPlotXY:
                         "y": self.y,
                         "mode": "lines",
                         "line": {
-                            "color": "blue",
-                            "width": 3
+                            "color": "black",
+                            "width": 2
                         },
                         "opacity": 0.65,
                     },
@@ -91,8 +93,9 @@ class ConfigsPlotXY:
                 "subplot_titles": ["1"]},
             "layout": {  # https://plotly.com/python/reference/layout/
                 "showlegend": self.custom_config['show_legend'],
-                # "title": "Časové řady",
                 "autosize": True,
+                "height": self.custom_config["height"],
+                # "title": "Časové řady",
                 "margin": self.custom_config["margin"],
                 "font": {
                     "family": "Georgia",
@@ -104,7 +107,9 @@ class ConfigsPlotXY:
                     "yanchor": "top",
                     "xanchor": "center",
                     "y": -0.1,
-                    "x": 0.5}
+                    "x": 0.5},
+                "paper_bgcolor": "rgb(255, 255, 255)",  # Background color for the entire plot area
+                "plot_bgcolor": "rgb(245, 245, 220)",
             },
             "display": self.custom_config["display"],
             "output": self.custom_config["output"],
