@@ -1,7 +1,5 @@
-
-set_token: # define your api token to pip [token]
-	vara="$$(export PYPI_USERNAME=__token__)"
-	varb="$$(export PYPI_PASSWORD=YOUR_PYPI_TOKEN)"
+PYPI_USERNAME=__token__
+PYPI_PASSWORD=YOUR_PYPI_TOKEN
 
 publish:
-	poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
+	poetry publish --build --username ${PYPI_USERNAME} --password ${PYPI_PASSWORD}
