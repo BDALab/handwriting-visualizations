@@ -39,5 +39,35 @@ class SimplePlots:
 
         return vizualize(final_config)
 
+    def plot_in_air(self, sample: HandwritingSample):
+        """Plot the on_surface data of the handwriting sample"""
+
+        # Get the strokes data
+        strokes = sample.get_strokes()
+
+        # Prepare the empty config
+        configs = []
+
+        # Prepare the config for each stroke (x,y) and get global config
+        for stroke in strokes:
+
+            if stroke[0] == "on_surface":
+                cfg = self.custom_config
+                cfg["line_color"] = "black"
+                configs.append(ConfigsPlotXY(x=stroke[1].x, y=stroke[1].y, custom_config=cfg).get_config())
+            else:
+                cfg = self.custom_config
+                cfg["line_color"] = "#E91E63"
+                configs.append(ConfigsPlotXY(x=stroke[1].x, y=stroke[1].y, custom_config=cfg).get_config())
+
+        # Create final config
+        final_config = configs[0]
+
+        # Go over each config in body and add only the x,y data
+        for config in configs[1:]:
+            final_config["body"][0].append(config["body"][0][0])
+
+        return vizualize(final_config)
+
 
 

@@ -22,6 +22,8 @@ class ConfigsPlotXY:
             self.custom_config["margin"] = {"t":10, "r":10, "b":10, "l":10}
         if "height" not in custom_config:
             self.custom_config["height"] = 500
+        if "line_color" not in custom_config:
+            self.custom_config["line_color"] = "black"
 
     def get_config(self):
         config = {}
@@ -34,7 +36,7 @@ class ConfigsPlotXY:
                         "y": self.y,
                         "mode": "lines",
                         "line": {
-                            "color": "black",
+                            "color": self.custom_config["line_color"],
                             "width": 2
                         },
                         "opacity": 0.65,
